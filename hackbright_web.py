@@ -54,6 +54,21 @@ def display_student():
     return render_template("new_student.html", github=github)
 
 
+@app.route("/project")
+def show_project_info():
+    """Show project information"""
+
+    title = request.args.get('title')
+    title, description, max_grade = hackbright.get_project_by_title(title)
+
+    html = render_template("project_info.html",
+                           title=title,
+                           description=description,
+                           max_grade=max_grade)
+
+    return html
+
+
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
     app.run(debug=True)

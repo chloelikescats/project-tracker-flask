@@ -10,7 +10,7 @@
 
   <ul>
     {% for project in project_details %}
-        <li>{{ project[0] }}, {{ project[1] }}</li>     
+        <li><a href="/project?title={{ project[0] }}">{{ project[0] }}</a></li>     
     {% endfor %}
   </ul>
 
